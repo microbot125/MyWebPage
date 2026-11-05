@@ -1,25 +1,11 @@
 +++
-title = "About"
-description = "Hugo, the world's fastest framework for building websites"
-date = "2019-02-28"
-aliases = ["about-us", "about-hugo", "contact"]
-author = "lee.so"
+title = "소개"
+description = "손민균 소개"
+date = "2026-10-06"
 +++
-
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-
-Hugo makes use of a variety of open source projects including:
-
-- https://github.com/yuin/goldmark
-- https://github.com/alecthomas/chroma
-- https://github.com/muesli/smartcrop
-- https://github.com/spf13/cobra
-- https://github.com/spf13/viper
-
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
-
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
-
-Websites built with Hugo are extremely fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+## 관심분야
+관심분야는 AI, 임베디드 입니다. AI의 경우에는 비전이 좋아보여서 관심을 가지게 되었고 임베디드의 경우, 어릴 때부터 로봇을 만드는걸 좋아했었고 논리 회로를 구현할 수 있는 게임에서 이런저런 회로 만드는게 취미였어서 관심을 가지게 되었습니다.
+## 학습목표
+현재 학습목표는 토플 점수 90점이상 맞기로 주기적인 학습 계획 및 동계 어학연수가 계획된 상태입니다.
+## 기술/도구/역량
+현재 활용 가능한 도구 중 하나는 git으로 객체지양프로그래밍 단체 과제를 깃과 깃허브를 통하여 협엽한 경험이 있습니다.

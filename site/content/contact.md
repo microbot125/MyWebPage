@@ -1,10 +1,8 @@
 +++
-title = "Contact"
-description = "Hugo, the world's fastest framework for building websites"
-date = "2019-02-28"
-aliases = ["about-us", "about-hugo", "contact"]
-author = "lee.so"
+title = "연락"
+description = "손민균 연락방법"
+date = "2026-10-06"
 +++
 
-- [github.com/nanxiaobei](https://github.com/nanxiaobei)
-- [lee.so](https://lee.so)
+- [github.com/microbot125](https://github.com/microbot125)
+- [이메일 링크](mailto:smglink25@gmail.com)
