@@ -1,7 +1,7 @@
 baseURL = "https://hugo-paper.vercel.app/"
 title = "My Portfolio"
 author = "Son Mingyun"
-copyright = "© 2025, lee.so\n© 2026, Son Mingyun"
+copyright = "© 2026, Son Mingyun"
 locale = "ko"
 DefaultContentLanguage = "ko"
 enableInlineShortcodes = true
@@ -20,7 +20,7 @@ ignoreErrors = ["error-remote-getjson"]
   instagram = 'microbot125'
 
 avatar = 'smglink25@gmail.com'
-  name = '민균'
+  name = '손민균'
   bio = '이것저것 건드려보는 컴퓨터인공지능학부 학생'
 # ------------------------------
 
