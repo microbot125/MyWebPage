@@ -21,7 +21,7 @@ ignoreErrors = ["error-remote-getjson"]
 
 avatar = 'smglink25@gmail.com'
   name = '민균'
-  bio = 'A computer science student who explores a wide range of different fields'
+  bio = '이것저것 건드려보는 컴퓨터인공지능학부 학생'
 # ------------------------------
 
 # needed to  render raw HTML (e.g. <sub>, <sup>, <kbd>, <mark>)
