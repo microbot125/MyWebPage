@@ -1,9 +1,9 @@
 baseURL = "https://hugo-paper.vercel.app/"
-title = "Paper"
-author = "Steve Francia"
-copyright = "© 2025, lee.so"
-locale = "en"
-DefaultContentLanguage = "en"
+title = "My Portfolio"
+author = "Son Mingyun"
+copyright = "© 2025, lee.so\n© 2026, Son Mingyun"
+locale = "ko"
+DefaultContentLanguage = "ko"
 enableInlineShortcodes = true
 # prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
 # See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
@@ -16,13 +16,12 @@ ignoreErrors = ["error-remote-getjson"]
 
 [params]
   color = 'linen'
-  twitter = 'nanxiaobei'
-  github = 'nanxiaobei'
-  instagram = 'nan.xiaobei'
+  github = 'microbot125'
+  instagram = 'microbot125'
 
-avatar = 'nanxiaobei@gmail.com'
-  name = 'Lee'
-  bio = 'Discover fresh context'
+avatar = 'smglink25@gmail.com'
+  name = '민균'
+  bio = 'A computer science student who explores a wide range of different fields'
 # ------------------------------
 
 # needed to  render raw HTML (e.g. <sub>, <sup>, <kbd>, <mark>)
