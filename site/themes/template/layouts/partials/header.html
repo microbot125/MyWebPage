@@ -7,18 +7,19 @@
       href="{{- `` | absURL -}}"
       >{{ site.Title }}</a
     >
-    <div
+    <button
+      type="button"
       class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer {{ if site.Params.monoDarkIcon }}[background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert{{ else }}[background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)]{{ end }} dark:[background-position:right]"
-      role="button"
-      aria-label="Dark"
-    ></div>
+      aria-label="다크 모드 전환"
+    ></button>
   </div>
 
-  <div
+  <button
+    type="button"
     class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8"
-    role="button"
-    aria-label="Menu"
-  ></div>
+    aria-label="메뉴 열기/닫기"
+    aria-expanded="false"
+  ></button>
 
   {{- $bg_color := $.Scratch.Get "bg_color" -}}<!---->
 
@@ -32,7 +33,8 @@
     // mobile menu
     const btnMenu = document.querySelector('.btn-menu');
     btnMenu.addEventListener('click', () => {
-      htmlClass.toggle('open');
+      const isOpen = htmlClass.toggle('open');
+      btnMenu.setAttribute('aria-expanded', isOpen);
     });
 
     // dark theme
