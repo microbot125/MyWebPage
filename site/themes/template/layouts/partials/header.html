@@ -103,4 +103,16 @@
     </nav>
     {{- end -}}<!---->
   </div>
+
+  <script>
+    // keyboard: keep the closed mobile menu (off-screen) out of Tab order
+    const navWrapper = document.querySelector('.nav-wrapper');
+    const desktopMq = window.matchMedia('(min-width: 64rem)'); // Tailwind lg
+    const syncNavInert = () => {
+      navWrapper.inert = !desktopMq.matches && !htmlClass.contains('open');
+    };
+    syncNavInert();
+    desktopMq.addEventListener('change', syncNavInert);
+    btnMenu.addEventListener('click', syncNavInert);
+  </script>
 </header>
