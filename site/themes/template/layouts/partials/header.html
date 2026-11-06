@@ -112,7 +112,14 @@
       navWrapper.inert = !desktopMq.matches && !htmlClass.contains('open');
     };
     syncNavInert();
-    desktopMq.addEventListener('change', syncNavInert);
+    desktopMq.addEventListener('change', () => {
+      // close the mobile menu when widening to desktop (button is hidden there)
+      if (desktopMq.matches) {
+        htmlClass.remove('open');
+        btnMenu.setAttribute('aria-expanded', false);
+      }
+      syncNavInert();
+    });
     btnMenu.addEventListener('click', syncNavInert);
   </script>
 </header>
