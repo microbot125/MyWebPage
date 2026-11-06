@@ -34,9 +34,9 @@ $paginator.Pages -}}<!---->
   {{- end -}}<!---->
   {{- if site.Params.name -}}
   <div>
-    <div class="mt-3 mb-1 text-2xl font-medium text-black dark:text-white">
+    <h1 class="mt-3 mb-1 text-2xl font-medium text-black dark:text-white">
       {{- site.Params.name -}}
-    </div>
+    </h1>
     <div class="break-words">
       {{- site.Params.bio | default (print `A personal blog by `
       site.Params.name) -}}
