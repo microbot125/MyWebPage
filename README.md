@@ -132,7 +132,7 @@ description = "한 줄 설명"
 | `layouts/partials/header.html` | SNS 아이콘 경로를 절대 경로로 바꿔 내부 페이지에서도 표시 | `ff4a083` |
 | `layouts/partials/header.html` | 모바일 메뉴를 연 채 창을 넓히면 스크롤이 잠기던 문제 수정 | `5428455` |
 | `layouts/_default/list.html` | 홈의 이름 표시를 `<h1>`으로 바꿔 문서 제목 구조 보완 | `927d1b0` |
-| `static/highlight.min.js` | 배포 빌드 스크립트가 파일을 깨뜨리지 않도록 같은 의미의 표기로 바꿈 (6-1절) | (커밋 후 기입) |
+| `static/highlight.min.js` | 배포 빌드 스크립트가 파일을 깨뜨리지 않도록 같은 의미의 표기로 바꿈 (6-1절) | `9e42151` |
 
 ### 6-1. highlight.js가 배포 과정에서 깨지던 문제 (AI 활용)
 
