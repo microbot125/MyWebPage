@@ -132,6 +132,21 @@ description = "한 줄 설명"
 | `layouts/partials/header.html` | SNS 아이콘 경로를 절대 경로로 바꿔 내부 페이지에서도 표시 | `ff4a083` |
 | `layouts/partials/header.html` | 모바일 메뉴를 연 채 창을 넓히면 스크롤이 잠기던 문제 수정 | `5428455` |
 | `layouts/_default/list.html` | 홈의 이름 표시를 `<h1>`으로 바꿔 문서 제목 구조 보완 | `927d1b0` |
+| `static/highlight.min.js` | 배포 빌드 스크립트가 파일을 깨뜨리지 않도록 같은 의미의 표기로 바꿈 (6-1절) | (커밋 후 기입) |
+
+### 6-1. highlight.js가 배포 과정에서 깨지던 문제 (AI 활용)
+
+- **관찰**: 배포 사이트를 헤드리스 Chrome으로 검사한 결과, 홈을 제외한 모든 페이지(소개·연락·활동 글)의 콘솔에 `SyntaxError: Invalid regular expression flags`, `ReferenceError: hljs is not defined` 오류가 발생했습니다. 화면에는 영향이 없었습니다(현재 글에 코드 블록이 없음).
+- **원인**: 수업 제공 빌드 스크립트 `.github/pages_build.py`의 경로 보정 함수 `fix_public_paths`가 `.js` 파일 안의 `"/…"`, `'/…'` 형태 문자열을 모두 경로로 보고 앞에 `/MyWebPage/`를 붙입니다. 그 결과 `highlight.min.js` 안의 정규식 `b:/"/,e:/"/`가 `b:/"/MyWebPage/"/`로 바뀌는 등 27곳이 손상되어 스크립트 전체가 실행되지 않았습니다. 배포된 파일과 저장소 원본을 비교해 확인했습니다.
+- **수정**: 빌드 스크립트와 테마 템플릿은 그대로 두고, `site/themes/template/static/highlight.min.js` 안에서 스크립트가 잘못 인식하는 패턴만 **JavaScript에서 의미가 같은 다른 표기**로 바꿨습니다.
+  - 정규식 안의 따옴표: `"` → `\x22`, `'` → `\x27` (정규식에서 같은 문자를 뜻함), 96곳
+  - `/`로 시작하는 문자열: `"/…"` → `"\/…"` (문자열에서 `\/`는 `/`와 같음), 15곳
+  - 첫 줄의 라이선스 주석(`highlight.js v9.15.6 | BSD3 License`)은 그대로 유지했습니다.
+- **검증**:
+  1. `node --check`로 문법 오류가 없는 것을 확인
+  2. 수정 전후 파일로 11개 언어 예제 코드를 하이라이트해 결과 HTML이 **완전히 같음**을 확인 (지원 언어 24개 동일, 자동 언어 감지 결과 동일)
+  3. 실제 사이트를 빌드한 뒤 `pages_build.py`의 `fix_public_paths`를 그대로 실행 → 수정한 파일은 **한 글자도 바뀌지 않음**. 대조군으로 원본 파일은 같은 실행에서 27곳이 손상됨
+- **남은 한계**: 테마를 새 버전으로 교체하거나 `highlight.min.js`를 원본으로 되돌리면 같은 문제가 다시 생깁니다. 빌드 스크립트 자체의 동작(`.js` 파일 안 문자열까지 경로로 보정함)은 수업 제공 코드라 수정하지 않았습니다.
 
 ## 7. 출처와 라이선스
 
@@ -141,7 +156,7 @@ description = "한 줄 설명"
 |---|---|---|---|
 | hugo-paper 테마 (v6.31) | <https://github.com/nanxiaobei/hugo-paper> | MIT (© 2018 南小北) | `site/themes/template/` (라이선스: `site/themes/template/LICENSE`, 루트 `LICENSE`) |
 | 테마 포함 아이콘·이미지 (github·instagram SVG, 다크모드 아이콘, favicon) | hugo-paper 테마 | MIT (테마에 포함) | `site/themes/template/static/` |
-| highlight.js v9.15.6 | <https://highlightjs.org/> | BSD-3-Clause | `site/themes/template/static/highlight.min.js` (테마에 포함) |
+| highlight.js v9.15.6 | <https://highlightjs.org/> | BSD-3-Clause | `site/themes/template/static/highlight.min.js` (테마에 포함, 6-1절의 표기 변환 적용) |
 | Hugo | <https://gohugo.io/> | Apache 2.0 | 사이트 생성기 |
 | 배포 준비 스크립트 | 수업 제공 | 수업 자료 | `prepare_github_pages.py`, `.github/pages_build.py`, `.github/workflows/hugo-pages.yml` |
 
@@ -155,6 +170,6 @@ description = "한 줄 설명"
 | **직접 작성** | `site/content/`의 모든 글 (소개, 연락, 활동 글 3개), `site/hugo.toml` 설정 값 |
 | **직접 제공** | 프로필 이미지 `site/static/avatar.jpeg` |
 | **외부 자료** | 위 표의 테마, 아이콘, 스크립트 |
-| **AI 활용** | 6절의 테마 수정 코드 (Claude Code 작성, 본인 검토·확인) / 이 README 초안 (Claude Code 작성, 본인 검수) / 핀테크 공모전 활동의 인터랙션 웹 (Claude로 제작, 이 저장소에는 포함되지 않음) |
+| **AI 활용** | 6절의 테마 수정 코드 (Claude Code 작성, 본인 검토·확인) / `highlight.min.js` 표기 변환과 검증 (6-1절, Claude Code 수행, 본인 요청·검토) / 이 README 초안 (Claude Code 작성, 본인 검수) / 핀테크 공모전 활동의 인터랙션 웹 (Claude로 제작, 이 저장소에는 포함되지 않음) |
 
 AI 수정 기록의 상세 내용(수정 전후 코드, 이유)은 보고서의 AI 활용 기록에 정리했습니다.
