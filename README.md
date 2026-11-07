@@ -126,18 +126,22 @@ description = "한 줄 설명"
 
 ## 6. 원본 테마에서 수정한 부분
 
-`site/themes/template/` 아래 테마 파일 중 다음을 수정했습니다. 수정은 모두 AI(Claude Code)의 제안·작성을 본인이 검토하고 브라우저로 확인한 뒤 반영했습니다.
+`site/themes/template/` 아래 테마 파일 중 다음을 수정했습니다. **작성** 열은 실제 코드를 누가 썼는지를 나타냅니다.
 
-| 파일 | 수정 내용 | 커밋 |
-|---|---|---|
-| `layouts/partials/mermaid.html` | mermaid CDN 버전 고정 (`mermaid@12.3.0`) | `5ff9b6e` |
-| `layouts/partials/header.html` | 다크모드·메뉴 버튼을 `<button>`으로 바꿔 키보드로 조작 가능하게 함, 한국어 `aria-label` | `a5ba7e9` |
-| `layouts/_default/baseof.html` | `avatar`에 사이트 내부 이미지 경로(`avatar.jpeg`)를 쓸 수 있게 함 | `9dcc3bd` |
-| `layouts/partials/header.html` | 닫힌 모바일 메뉴로 Tab 초점이 들어가지 않게 함 (`inert`) | `5276cd8` |
-| `layouts/partials/header.html` | SNS 아이콘 경로를 절대 경로로 바꿔 내부 페이지에서도 표시 | `ff4a083` |
-| `layouts/partials/header.html` | 모바일 메뉴를 연 채 창을 넓히면 스크롤이 잠기던 문제 수정 | `5428455` |
-| `layouts/_default/list.html` | 홈의 이름 표시를 `<h1>`으로 바꿔 문서 제목 구조 보완 | `927d1b0` |
-| `static/highlight.min.js` | 배포 빌드 스크립트가 파일을 깨뜨리지 않도록 같은 의미의 표기로 바꿈 (6-1절) | `9e42151` |
+- **본인 작성**: AI(Claude Code)의 제안을 참고해 본인이 방식을 정하고 직접 수정
+- **AI 작성**: 본인이 수정을 허용·지시하고, AI가 코드를 작성. 결과는 본인이 검토
+
+| 파일 | 수정 내용 | 작성 | AI 제안과 본인 결정 | 커밋 |
+|---|---|---|---|---|
+| `layouts/partials/mermaid.html` | mermaid CDN 버전 고정 (`mermaid@12.3.0`) | 본인 | AI 제안: `@12.2.0` 고정, 테마 파일 대신 `site/layouts/`에 덮어쓰기 파일을 두는 방식 → 본인 결정: 테마 업데이트 계획이 없어 테마 파일을 직접 수정, 버전은 `12.3.0`으로 선택 | `5ff9b6e` |
+| `layouts/partials/header.html` | 다크모드·메뉴 버튼을 `<button>`으로 바꿔 키보드로 조작 가능하게 함, 한국어 `aria-label` | AI | AI가 키보드 접근 문제를 지적 → 본인이 헤더 버튼 범위로 수정 허용 | `a5ba7e9` |
+| `layouts/_default/baseof.html` | `avatar`에 사이트 내부 이미지 경로(`avatar.jpeg`)를 쓸 수 있게 함 | AI | AI 제안: ① 전체 URL로 쓰기 ② 템플릿 수정 → 본인이 ② 선택 | `9dcc3bd` |
+| `layouts/partials/header.html` | 닫힌 모바일 메뉴로 Tab 초점이 들어가지 않게 함 (`inert`) | AI | AI가 문제 지적 → 본인이 수정 지시 (같은 커밋의 `hugo.toml` baseURL 변경은 본인 작성) | `5276cd8` |
+| `layouts/partials/header.html` | SNS 아이콘 경로를 절대 경로로 바꿔 내부 페이지에서도 표시 | AI | AI가 브라우저별 해석 차이 가능성 지적 → 본인이 Chrome·Safari 정상 확인 후, 미확인 브라우저 대비로 수정 지시 | `ff4a083` |
+| `layouts/partials/header.html` | 모바일 메뉴를 연 채 창을 넓히면 스크롤이 잠기던 문제 수정 | AI | AI가 가능성 지적 → 본인이 브라우저에서 재현 확인 후 수정 지시 | `5428455` |
+| `layouts/_default/list.html` | 홈의 이름 표시를 `<h1>`으로 바꿔 문서 제목 구조 보완 | 본인 | AI 제안: ① 사이트 제목을 홈에서만 `<h1>`으로 ② 이름 `<div>`를 `<h1>`으로 → 본인이 ② 선택해 직접 수정 | `927d1b0` |
+| `layouts/_default/list.html` | 홈 목록의 `Featured` 라벨을 `대표 활동`으로 변경 | 본인 | AI 제안: ① `weight` 삭제 ② 라벨 문구 한글화 ③ 라벨 삭제 → 본인이 ② 선택, 문구는 `주요활동`을 거쳐 `대표 활동`으로 결정 | `bdf145b`, `fe4fb0b` |
+| `static/highlight.min.js` | 배포 빌드 스크립트가 파일을 깨뜨리지 않도록 같은 의미의 표기로 바꿈 (6-1절) | AI | AI 권장: `hugo.toml`에 `disableHLJS = true` → 본인 결정: 기능과 제공 스크립트를 유지하는 역변환 방식 지시 | `9e42151` |
 
 ### 6-1. highlight.js가 배포 과정에서 깨지던 문제 (AI 활용)
 
