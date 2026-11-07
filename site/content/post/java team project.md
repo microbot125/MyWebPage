@@ -16,5 +16,5 @@ description = "객체지향프로그래밍 팀프로젝트에서의 기여 등�
 안정적인 연결 상태를 기준으로는 정상 동작하지만, 클라이언트가 강제 종료/비정상 종료로 통신을 끊을 경우, 서버에 에러가 발생하는 예외 처리 오류 존재
 ->향후 프로젝트에서는 이 부분을 생각하고 구현
 ## 결과물
-클라이언트 https://github.com/microbot125/-5-/commits/main/
+클라이언트 https://github.com/microbot125/-5-/commits/main/  
 서버 https://github.com/yeeuneeyaa/-5-
