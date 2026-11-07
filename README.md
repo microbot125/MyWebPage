@@ -167,7 +167,7 @@ description = "한 줄 설명"
 
 | 구분 | 대상 |
 |---|---|
-| **직접 작성** | `site/content/`의 모든 글 (소개, 연락, 활동 글 3개), `site/hugo.toml` 설정 값 |
+| **직접 작성** | `site/content/`의 모든 글 (소개, 연락, 활동 글 4개), `site/hugo.toml` 설정 값 |
 | **직접 제공** | 프로필 이미지 `site/static/avatar.jpeg` |
 | **외부 자료** | 위 표의 테마, 아이콘, 스크립트 |
 | **AI 활용** | 6절의 테마 수정 코드 (Claude Code 작성, 본인 검토·확인) / `highlight.min.js` 표기 변환과 검증 (6-1절, Claude Code 수행, 본인 요청·검토) / 이 README 초안 (Claude Code 작성, 본인 검수) / 핀테크 공모전 활동의 인터랙션 웹 (Claude로 제작, 이 저장소에는 포함되지 않음) |
