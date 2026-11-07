@@ -141,6 +141,7 @@ description = "한 줄 설명"
 | `layouts/partials/header.html` | 모바일 메뉴를 연 채 창을 넓히면 스크롤이 잠기던 문제 수정 | AI | AI가 가능성 지적 → 본인이 브라우저에서 재현 확인 후 수정 지시 | `5428455` |
 | `layouts/_default/list.html` | 홈의 이름 표시를 `<h1>`으로 바꿔 문서 제목 구조 보완 | 본인 | AI 제안: ① 사이트 제목을 홈에서만 `<h1>`으로 ② 이름 `<div>`를 `<h1>`으로 → 본인이 ② 선택해 직접 수정 | `927d1b0` |
 | `layouts/_default/list.html` | 홈 목록의 `Featured` 라벨을 `대표 활동`으로 변경 | 본인 | AI 제안: ① `weight` 삭제 ② 라벨 문구 한글화 ③ 라벨 삭제 → 본인이 ② 선택, 문구는 `주요활동`을 거쳐 `대표 활동`으로 결정 | `bdf145b`, `fe4fb0b` |
+| `layouts/_default/list.html` | 세로 사진인 프로필 이미지가 원형 틀에 눌려 보이던 문제를 고침 (`style="object-fit: cover"`로 비율을 유지하며 채움) | 본인 | AI가 이미지 왜곡을 지적하고 제안: ① 사진을 정사각형으로 잘라 교체 ② `<img>`에 `object-fit: cover` 인라인 스타일 추가 (테마의 미리 빌드된 CSS에 `object-cover` 클래스가 없어 클래스로는 적용 안 됨) → 본인이 원본 사진을 유지할 수 있는 ② 선택해 직접 수정 | `b92ad7a` |
 | `static/highlight.min.js` | 배포 빌드 스크립트가 파일을 깨뜨리지 않도록 같은 의미의 표기로 바꿈 (6-1절) | AI | AI 권장: `hugo.toml`에 `disableHLJS = true` → 본인 결정: 기능과 제공 스크립트를 유지하는 역변환 방식 지시 | `9e42151` |
 
 ### 6-1. highlight.js가 배포 과정에서 깨지던 문제 (AI 활용)
