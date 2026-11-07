@@ -8,6 +8,11 @@ Hugo와 [hugo-paper](https://github.com/nanxiaobei/hugo-paper) 테마로 만든 
 
 > **작성 표기**: 이 README는 AI(Claude Code, 모델 `claude-opus-5-5`)가 초안을 작성했고, 저장소 주인 손민균이 검수했습니다. (초안 작성일 2026-11-06)
 
+> **⚠️ 배포 빌드 주의 (highlight.js)**: 수업 제공 빌드 스크립트(`.github/pages_build.py`)의
+> 경로 보정 단계가 `highlight.min.js` 안의 정규식을 경로로 오인해 손상시키는 문제가 있어,
+> 같은 의미의 표기로 바꾼 파일을 사용합니다. 테마를 교체하거나 이 파일을 원본으로 되돌리면
+> 배포 사이트(로컬 `hugo server`에서는 재현되지 않음)에서 콘솔 오류가 다시 발생합니다. → [6-1절](#6-1-highlightjs가-배포-과정에서-깨지던-문제-ai-활용)
+
 ---
 
 ## 1. 폴더 구조
