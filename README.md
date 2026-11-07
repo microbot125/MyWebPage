@@ -146,7 +146,7 @@ description = "한 줄 설명"
 
 ### 6-1. highlight.js가 배포 과정에서 깨지던 문제 (AI 활용)
 
-- **관찰**: 배포 사이트를 헤드리스 Chrome으로 검사한 결과, 홈을 제외한 모든 페이지(소개·연락·활동 글)의 콘솔에 `SyntaxError: Invalid regular expression flags`, `ReferenceError: hljs is not defined` 오류가 발생했습니다. 화면에는 영향이 없었습니다(현재 글에 코드 블록이 없음).
+- **관찰**: 배포 사이트를 헤드리스 Chrome으로 검사한 결과, 홈을 제외한 모든 페이지(소개·연락·활동 글)의 콘솔에 `SyntaxError: Invalid regular expression flags`, `ReferenceError: hljs is not defined` 오류가 발생했습니다. 화면에는 영향이 없었습니다(당시 글에 코드 블록이 없음).
 - **원인**: 수업 제공 빌드 스크립트 `.github/pages_build.py`의 경로 보정 함수 `fix_public_paths`가 `.js` 파일 안의 `"/…"`, `'/…'` 형태 문자열을 모두 경로로 보고 앞에 `/MyWebPage/`를 붙입니다. 그 결과 `highlight.min.js` 안의 정규식 `b:/"/,e:/"/`가 `b:/"/MyWebPage/"/`로 바뀌는 등 27곳이 손상되어 스크립트 전체가 실행되지 않았습니다. 배포된 파일과 저장소 원본을 비교해 확인했습니다.
 - **수정**: 빌드 스크립트와 테마 템플릿은 그대로 두고, `site/themes/template/static/highlight.min.js` 안에서 스크립트가 잘못 인식하는 패턴만 **JavaScript에서 의미가 같은 다른 표기**로 바꿨습니다.
   - 정규식 안의 따옴표: `"` → `\x22`, `'` → `\x27` (정규식에서 같은 문자를 뜻함), 96곳
@@ -177,9 +177,9 @@ description = "한 줄 설명"
 
 | 구분 | 대상 |
 |---|---|
-| **직접 작성** | `site/content/`의 모든 글 (소개, 연락, 활동 글 4개), `site/hugo.toml` 설정 값 |
+| **직접 작성** | `site/content/`의 모든 글 (소개, 연락, 활동 글 4개), `site/hugo.toml` 설정 값, 6절 표에서 **작성**이 "본인"인 테마 수정 (AI 제안을 참고해 본인이 방식을 정하고 직접 수정) |
 | **직접 제공** | 프로필 이미지 `site/static/avatar.jpeg` |
 | **외부 자료** | 위 표의 테마, 아이콘, 스크립트 |
-| **AI 활용** | 6절의 테마 수정 코드 (Claude Code 작성, 본인 검토·확인) / `highlight.min.js` 표기 변환과 검증 (6-1절, Claude Code 수행, 본인 요청·검토) / 이 README 초안 (Claude Code 작성, 본인 검수) / 핀테크 공모전 활동의 인터랙션 웹 (Claude로 제작, 이 저장소에는 포함되지 않음) |
+| **AI 활용** | 6절 표에서 **작성**이 "AI"인 테마 수정 코드 (Claude Code 작성, 본인 검토·확인) / `highlight.min.js` 표기 변환과 검증 (6-1절, Claude Code 수행, 본인 요청·검토) / 이 README 초안 (Claude Code 작성, 본인 검수) / 핀테크 공모전 활동의 인터랙션 웹 (Claude로 제작, 이 저장소에는 포함되지 않음) |
 
 AI 수정 기록의 상세 내용(수정 전후 코드, 이유)은 보고서의 AI 활용 기록에 정리했습니다.
